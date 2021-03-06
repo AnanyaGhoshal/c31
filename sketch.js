@@ -3,9 +3,10 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 
 var engine, world;
-var raindrops; 
+var raindrops = []; 
 var thunder, thunderGroup, thunder1, thunder2, thunder3, thunder4;
 var man, manImg;
+var maxDrops = 100;
 
 
 function preload(){
@@ -28,11 +29,26 @@ function setup(){
     engine = Engine.create();
     world = engine.world;
 
-    raindrops = new Drops(100,50);
+    
     man = new Umbrela(150,440);
+   
+
+    
+
+    if(frameCount % 150 ===0){
+
+        for(var i = 0; i <maxDrops; i++){
+            raindrops.push(new Drops(random(0,400)),(random(0,400)));
+        }    
 
 
+    }
 
+   
+
+   
+
+   
     
 }
 
@@ -44,14 +60,16 @@ function draw(){
 
     Engine.update(engine);
 
-    //var maxDrops = 100;
+    console.log(raindrops[0]);
 
-    //for(var i = 0; i<maxDrops; i++){
-    //    circle(this.drops[i][0],this.drops[i][1]);
-    //    raindrops.push(new Drops(random(0,400), random(0,400)));
-    // }
+    for(var i = 0; i<maxDrops; i++){
 
-    raindrops.display();
+       raindrops[i].show();
+
+    }  
+    
+
+    
     man.display();
     drawSprites();
 

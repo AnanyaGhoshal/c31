@@ -14,33 +14,23 @@ class Drops{
         
 
         World.add(world,this.body);
-        this.drops = [];
+        
 
     }
 
-    display(){
+    show(){
 
         var pos = this.body.position;
-        var angle = this.body.angle;
+        //var angle = this.body.angle;
 
 
-        push();
-        translate(pos.x,pos.y);
-        rotate(angle);
+       //push();
+       //translate(pos.x,pos.y);
+       //rotate(angle);
         ellipseMode(RADIUS);
         fill(0,0,255);  
-        circle(0,0,this.radius);     
-        pop();
-
-      
-       
-            //this.drops.push([this.body.position.x,this.body.position.y]);
+        circle(pos.x,pos.y,this.radius);     
+       // pop();
             
-            for(var i = 0; i<this.drops.length; i++){
-                ellipseMode(RADIUS);
-                fill(0,0,255);       
-               circle(this.drops[i][0],this.drops[i][1]);
-            }       
-         
     }
 }
