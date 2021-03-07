@@ -9,8 +9,8 @@ class Drops{
         }
 
 
-        this.body = Bodies.circle(x,y,10,options);
-        this.radius = 10;
+        this.body = Bodies.circle(x,y,5,options);
+        this.radius = 5;
         
 
         World.add(world,this.body);
@@ -21,16 +21,18 @@ class Drops{
     show(){
 
         var pos = this.body.position;
-        //var angle = this.body.angle;
 
-
-       //push();
-       //translate(pos.x,pos.y);
-       //rotate(angle);
         ellipseMode(RADIUS);
         fill(0,0,255);  
-        circle(pos.x,pos.y,this.radius);     
-       // pop();
-            
+        circle(pos.x,pos.y,this.radius);   
+
+    }
+
+    reposition(){
+
+        if(this.body.position.y>height){
+
+            Matter.Body.setPosition(this.body,{x:random(0,500),y:random(0,500)})
+        }
     }
 }

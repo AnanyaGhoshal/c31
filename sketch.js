@@ -6,7 +6,7 @@ var engine, world;
 var raindrops = []; 
 var thunder, thunderGroup, thunder1, thunder2, thunder3, thunder4;
 var man, manImg;
-var maxDrops = 100;
+var maxDrops = 150;
 
 
 function preload(){
@@ -15,11 +15,7 @@ thunder1 = loadImage("1.png");
 thunder2 = loadImage("2.png");
 thunder3 = loadImage("3.png");
 thunder4 = loadImage("4.png");
-//manImg = loadAnimation("walking_1.png","walking_2.png","walking_3.png","walking_4.png","walking_5.png","walking_6.png","walking_7.png",
-//"walking_8.png");
 
-
-    
 }
 
 function setup(){
@@ -38,17 +34,14 @@ function setup(){
     if(frameCount % 150 ===0){
 
         for(var i = 0; i <maxDrops; i++){
-            raindrops.push(new Drops(random(0,400)),(random(0,400)));
+
+            raindrops.push(new Drops(random(0,500),random(0,500)));
+
         }    
 
 
     }
-
-   
-
-   
-
-   
+  
     
 }
 
@@ -60,11 +53,12 @@ function draw(){
 
     Engine.update(engine);
 
-    console.log(raindrops[0]);
+  //  console.log(raindrops[0]);
 
     for(var i = 0; i<maxDrops; i++){
 
        raindrops[i].show();
+       raindrops[i].reposition();
 
     }  
     
@@ -112,9 +106,8 @@ function spawnThunders(){
 
         }
 
-        //thunderGroup.add(thunder);
+       
     }
 
     
 }
-
