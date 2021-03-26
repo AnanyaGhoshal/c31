@@ -7,8 +7,8 @@ class Umbrela{
             'isStatic':true
         }
 
-        this.body = Bodies.circle(x,y,15,options);
-        this.radius = 15;
+        this.body = Bodies.circle(x,y,150,options);
+        this.radius = 150;
         this.image = loadImage("walking_1.png");
 
         World.add(world,this.body);
@@ -24,9 +24,10 @@ class Umbrela{
         translate(pos.x,pos.y);
         rotate(angle);
         fill(255);
-        ellipseMode(RADIUS);
+        ellipseMode(CENTER);
         imageMode(CENTER);
-        image(this.image,0,0, this.radius*25,this.radius*25);
+        image(this.image,0,0, this.radius*3,this.radius*2.5);
+       // circle(0,0,this.radius);
         pop();
 
     }

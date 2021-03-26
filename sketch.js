@@ -24,13 +24,9 @@ function setup(){
 
     engine = Engine.create();
     world = engine.world;
-
     
-    man = new Umbrela(150,440);
-   
-
-    
-
+    man = new Umbrela(180,440);
+       
     if(frameCount % 150 ===0){
 
         for(var i = 0; i <maxDrops; i++){
